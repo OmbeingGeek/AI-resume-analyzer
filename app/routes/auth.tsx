@@ -10,10 +10,8 @@ export const meta = () => ([
 
 const Auth = () => {
   const { isLoading, auth } = usePuterStore();
-
   const location = useLocation();
   const next = location.search.split('next=')[1];
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,17 +35,11 @@ const Auth = () => {
             ) : (
               <>
                 {auth.isAuthenticated ? (
-                  <button
-                    className="auth-button"
-                    onClick={auth.signOut}
-                  >
+                  <button className="auth-button" onClick={auth.signOut}>
                     <p>Log Out</p>
                   </button>
                 ) : (
-                  <button
-                    className="auth-button"
-                    onClick={auth.signIn}
-                  >
+                  <button className="auth-button" onClick={auth.signIn}>
                     <p>Log in</p>
                   </button>
                 )}
